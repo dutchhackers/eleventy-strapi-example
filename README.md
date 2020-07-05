@@ -2,6 +2,9 @@
 
 This is an example project. This project shows how to use Eleventy with Stapi (Headless CMS) and it will fetch all data via the GraphQL endpoint. 
 
+The demo result is a static site and will show a simple Tracks/Songs listing. Data is coming from Strapi and fetched by Eleventy via GraphQL.
+
+
 ## Getting started
 
 Configuration steps:
@@ -28,7 +31,7 @@ npm run start
 
 Create environment file:
 ```
-cp .env.example .env2
+cp .env.example .env
 ```
 
 Specify GraphQL enpoint on Strapi Server:
@@ -43,6 +46,19 @@ Run Strapi
 cd strapi-cms
 npm run develop
 ```
+
+If you're starting Strapi for the first time, it will:
+- create a local database in the folder `.tmp`
+- ask you to create an Admin account
+
+If you need more instructions on Strapi, visit [Strapi Quickstart](https://strapi.io/documentation/3.0.0-beta.x/getting-started/quick-start.html)
+
+The following Collection types will be created automatically:
+- Track
+- Artist
+
+Important: make sure to set the correct permissions (find/findOne)
+
 
 Start Eleventy
 
