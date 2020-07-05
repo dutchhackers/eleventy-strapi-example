@@ -82,8 +82,6 @@ async function getAllTracks() {
     };
   });
 
-  console.log(tracksFormatted)
-
   // return formatted tracks
   return tracksFormatted;
 }
