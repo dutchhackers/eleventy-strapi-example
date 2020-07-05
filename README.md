@@ -51,4 +51,4 @@ cd eleventy-site
 npm run start
 ```
 
-If everything runs OK, the eleventy site is available on 
+If everything runs OK, the eleventy site is available on http://localhost:8080
