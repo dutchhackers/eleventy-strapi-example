@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tracks",
+  "info": {
+    "name": "Track"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "artist": {
+      "model": "artist",
+      "via": "tracks"
+    },
+    "popularity": {
+      "type": "integer",
+      "max": 100,
+      "min": 0
+    },
+    "imageUrl": {
+      "type": "string"
+    }
+  }
+}

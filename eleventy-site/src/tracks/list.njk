@@ -1,0 +1,37 @@
+---
+pagination:
+  data: tracks
+  size: 12
+permalink: track{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html
+---
+
+{% extends "layouts/base.njk" %}
+{% set htmlTitle = item.name %}
+
+{% block content %}
+  <h1>Tracks</h1>
+
+  {# loop through paginated item #}
+  {% for item in pagination.items %}
+    {% if loop.first %}<ul>{% endif %}
+      <li>
+        <h2><a href="/track/{{ item.id }}">{{ item.name }}</a></h2>
+        <p>{{ item.artist }}</p>
+        <p><img src="{{ item.imageUrl }}" alt="{{ item.name }}"></p>
+      </li>
+    {% if loop.last %}</ul>{% endif %}
+  {% endfor %}
+
+  {# pagination #}
+  {% if pagination.hrefs | length > 0 %}
+  <ul>
+    {% if pagination.previousPageHref %}
+      <li><a href="{{ pagination.previousPageHref }}">Previous page</a></li>
+    {% endif %}
+    {% if pagination.nextPageHref %}
+      <li><a href="{{ pagination.nextPageHref }}">Next page</a></li>
+    {% endif %}
+  </ul>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+---
+permalink: index.html
+---
+
+{% extends "layouts/base.njk" %}
+
+{% set htmlTitle = "Homepage" %}
+
+{% block content %}
+  <h1>Tracks</h1>
+  {% for item in tracks | limit(3) %}
+    {% if loop.first %}<ul>{% endif %}
+      <li>
+        <h2><a href="/track/{{ item.id }}">{{ item.name }}</a></h2>
+        <p>{{ item.artist }}</p>
+        <p><img src="{{ item.imageUrl }}" alt="{{ item.name }}"></p>
+      </li>
+    {% if loop.last %}</ul>{% endif %}
+  {% else %}
+    <p>No tracks found</p>
+  {% endfor %}
+
+{% endblock %}

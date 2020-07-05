@@ -1,0 +1,25 @@
+---
+pagination:
+  data: tracks
+  size: 1
+  alias: track
+permalink: track/{{ track.id }}/index.html
+---
+{% extends "layouts/base.njk" %}
+{% set htmlTitle = track.title %}
+
+{% block content %}
+  {# track #}
+  <h1>{{ track.name }}</h1>
+  <p>{{ track.artist }}</p>
+  {{ track.name | safe }}
+
+  <p>
+    <img src="{{ track.imageUrl }}" alt="{{ track.name }}">
+  </p>
+
+  <p>
+    <time datetime="{{ track.date | date('y-M-dd') }}">Added {{ track.date|date("MMMM d, y") }}</time>
+  </p>
+
+{% endblock %}
